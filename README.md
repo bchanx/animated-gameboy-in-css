@@ -1,6 +1,6 @@
 animated-gameboy-in-css
 =======================
-![Animated Gameboy in CSS](https://raw.github.com/bchanx/animated-gameboy-in-css/master/animaged-gameboy.gif)
+![Animated Gameboy in CSS](https://raw.githubusercontent.com/bchanx/animated-gameboy-in-css/master/animated-gameboy.gif)
 
 Animated Gameboy created in CSS, built in [less](http://www.lesscss.org).
 
