@@ -1,0 +1,94 @@
+<head>
+  <link type="text/css" rel="stylesheet" href="animated-gameboy-in-css.css">
+  <script>
+    // A tiny bit of javascript code for color selection
+    window.onload = function() {
+      var colors = ['red', 'purple', 'green', 'yellow', 'teal', 'transparent'];
+      var last = null;
+      Array.prototype.slice.call(document.querySelectorAll('.color')).forEach(function(el) {
+        el.addEventListener('click', function() {
+          if (last) {
+            last.classList.remove('active');
+          }
+          var color = el.getAttribute('data-color');
+          var gameboy = document.querySelector('#gameboy');
+          gameboy.style.opacity = 0;
+          gameboy.classList.remove(gameboy.classList[0]);
+          var clone = gameboy.cloneNode(true);
+          gameboy.remove();
+          clone.classList.add(color);
+          clone.style.opacity = 1;
+          var colors = document.querySelector('#colors');
+          colors.parentNode.insertBefore(clone, colors);
+          el.classList.add('active');
+          last = el;
+        });
+      });
+
+      document.querySelector('.color[data-color="green"]').dispatchEvent(new MouseEvent('click', {
+        'view': window,
+        'bubbles': true
+      }));
+    }
+  </script>
+</head>
+
+<body>
+  <div id="gameboy" class="green">
+    <div id="canvas"></div>
+    <div id="border"></div>
+    <div id="border-top"></div>
+    <div id="border-left"></div>
+    <div id="border-bottom"></div>
+    <div id="border-right"></div>
+    <div id="screw-small-right" class="screw small"></div>
+    <div id="screw-small-left" class="screw small"></div>
+    <div id="screw-large-right" class="screw large"></div>
+    <div id="screw-large-left" class="screw large"></div>
+    <div id="backboard"></div>
+    <div id="motherboard"></div>
+    <div id="motherboard-capacitors" class="capacitors"></div>
+    <div id="chip-short" class="chip"></div>
+    <div id="chip-diagonal" class="chip"></div>
+    <div id="chip-tall" class="chip"></div>
+    <div id="chip-capacitors" class="capacitors"></div>
+    <div id="contrast-knob"></div>
+    <div id="link-port"></div>
+    <div id="circuit-bottom" class="circuit"></div>
+    <div id="circuit-top" class="circuit"></div>
+    <div id="transistors"></div>
+    <div id="processor"></div>
+    <div id="component"></div>
+    <div id="controller"></div>
+    <div id="speaker"></div>
+    <div id="whitescreen"></div>
+    <div id="glass"></div>
+    <div id="glass-gameboy-text">GAME BOY</div>
+    <div id="glass-color-text">C</div>
+    <div id="screen"></div>
+    <div id="screen-gameboy-text">GAME BOY</div>
+    <div id="screen-nintendo-text">Nintendo</div>
+    <div id="joystick-pad"></div>
+    <div id="joystick">.</div>
+    <div id="control"></div>
+    <div id="control-b" class="control-button">B</div>
+    <div id="control-a" class="control-button">A</div>
+    <div id="start-select-box"></div>
+    <div id="start-select-button"></div>
+    <div id="cover-vertical"></div>
+    <div id="cover-horizontal"></div>
+    <div id="gloss"></div>
+    <div id="speaker-holes"></div>
+    <div id="power"></div>
+  </div>
+
+  <div id="colors">
+    <span>Colors:</span>
+    <div class="color" data-color="red"></div>
+    <div class="color" data-color="purple"></div>
+    <div class="color" data-color="green"></div>
+    <div class="color" data-color="yellow"></div>
+    <div class="color" data-color="teal"></div>
+    <div class="color" data-color="transparent"></div>
+  </div>
+</body>
